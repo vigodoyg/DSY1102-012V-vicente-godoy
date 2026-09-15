@@ -1,16 +1,20 @@
-#Analisis caso de negocio
+# Análisis del Problema - Veterinaria
 
-El sistema requiere gestionar la atención
-de distintos tipos de animales en una veterinaria
-Los animales se dividen en 2  grupos
+ Conceptos
+Veterinaria
+- Animal
+- Mascota
+- Salvaje
+- Perro
+- Gato
+- Tigre
+- León
 
-Animales salvajes:
-Leones y tigres
-
-Mascotas:
-Perros y gatos
-
-
-El objetivo es tener un registro ordenado y
-poder realizar acciones comunes sobre todo
-tipo de animales.
+## Acciones
+- Registrar animal
+- Atender animal
+- Alimentar animal
+- Emitir so
+- Las mascotas (perro y gato) tienen dueño y vacunas.
+- Los animales salvajes (tigre y león) pertenecen a un hábitat y no se domestican.
+- Todos los animales heredan comportamientos básicos de la clase base Animal.

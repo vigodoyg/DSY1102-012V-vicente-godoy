@@ -1,5 +1,25 @@
 //evaluacion parte 1
 
+
+
+//Evidencia de IL 1.1
+//Incluye en el código un comentario breve, escrito con tus palabras, que explique al menos una diferen-
+//cia entre esta solución orientada a objetos y una solución puramente procedural o estructurada. Debe
+//mencionar cómo Java usa tipos explícitos y cómo las clases agrupan datos y comportamiento.
+
+
+
+//a diferencia de la programación estructurada (como lo visto en fundamentos de la programación con python), en POO utilizamos clases que agrupan los atributos
+// con su repectivo metodo en un solo lugar, además que java te obliga a especificar cada dato segun su tipo (boolean, string, int, double) para
+// controlar y validad la informacion dentro del propio objeto.
+
+
+
+
+
+
+
+
 public class Vivienda {
 
     private String codigoPropiedad;
@@ -47,7 +67,6 @@ public class Vivienda {
 
     @Override
     public String toString() {
-        String superficieStr = (superficieM2 % 1 == 0) ? String.valueOf((long) superficieM2) : String.valueOf(superficieM2);
-        return "Código: " + codigoPropiedad + " | Superficie: " + superficieStr;
+        return "Código: " + codigoPropiedad + " | Superficie: " + (int) superficieM2;
     }
 }

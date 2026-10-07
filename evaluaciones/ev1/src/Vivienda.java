@@ -1,26 +1,6 @@
-//evaluacion parte 1
+//PARTE II
 
-
-
-//Evidencia de IL 1.1
-//Incluye en el código un comentario breve, escrito con tus palabras, que explique al menos una diferen-
-//cia entre esta solución orientada a objetos y una solución puramente procedural o estructurada. Debe
-//mencionar cómo Java usa tipos explícitos y cómo las clases agrupan datos y comportamiento.
-
-
-
-//a diferencia de la programación estructurada (como lo visto en fundamentos de la programación con python), en POO utilizamos clases que agrupan los atributos
-// con su repectivo metodo en un solo lugar, además que java te obliga a especificar cada dato segun su tipo (boolean, string, int, double) para
-// controlar y validad la informacion dentro del propio objeto.
-
-
-
-
-
-
-
-
-public class Vivienda {
+public abstract class Vivienda {
 
     private String codigoPropiedad;
     private double superficieM2;
@@ -35,10 +15,9 @@ public class Vivienda {
     public String getCodigoPropiedad() {
         return codigoPropiedad;
     }
-
     public void setCodigoPropiedad(String codigoPropiedad) {
         if (codigoPropiedad == null || codigoPropiedad.trim().isEmpty()) {
-            throw new IllegalArgumentException("el codigo de la propiedad no puede ser nulo ni vacío.");
+            throw new IllegalArgumentException("El codigo de propiedad no puede ser nulo ni vacío.");
         }
         this.codigoPropiedad = codigoPropiedad.trim();
     }
@@ -60,9 +39,21 @@ public class Vivienda {
 
     public void setNumeroHabitaciones(int numeroHabitaciones) {
         if (numeroHabitaciones <= 0) {
-            throw new IllegalArgumentException("El número de habitaciones debe ser mayor que cero.");
+            throw new IllegalArgumentException("El numero de habitaciones debe ser mayor que cero.");
         }
         this.numeroHabitaciones = numeroHabitaciones;
+    }
+
+
+    public abstract double calcularCostoArriendo();
+
+
+    public double calcularCostoArriendo(double porcentajeDescuento) {
+        if (porcentajeDescuento < 0 || porcentajeDescuento > 100) {
+            throw new IllegalArgumentException("el porcentaje de descuento debe estar entre 0 y 100.");
+        }
+        double costoBase = calcularCostoArriendo();
+        return costoBase * (1.0 - (porcentajeDescuento / 100.0));
     }
 
     @Override

@@ -1,18 +1,28 @@
 
-//PARTE II
-//testeando la clase departamento y casa
+//PARTE III
+//No todos los objetos del dominio poseen la misma capacidad adicional. Esa capacidad debe modelarse
+//mediante un contrato independiente de la jerarquía principal.
+
+
+//testeo casa / departamento con interfaz /
+
+
 
 public class Main {
     public static void main(String[] args) {
 
-        Vivienda miCasa = new Casa("CASA-123", 120, 3, true);
+        Casa miCasa = new Casa("CASA-666", 120, 3, true);
         System.out.println(miCasa);
-        System.out.println("Arriendo base: " + miCasa.calcularCostoArriendo() +  "pesos");
-        System.out.println("Arriendo con 10% desc: " + miCasa.calcularCostoArriendo(10));
+        System.out.println("Arriendo base casa: " + miCasa.calcularCostoArriendo()+ "Pesos");
+
         System.out.println("\n");
-        Vivienda miDepto = new Departamento("DEP-123123", 55, 2, 4, false);
+
+        Departamento miDepto = new Departamento("DEP-201", 55, 2, 4, true);
         System.out.println(miDepto);
-        System.out.println("Arriendo moroso: " + miDepto.calcularCostoArriendo()+  "pesos");
-        System.out.println("Arriendo con 5% desc: " + miDepto.calcularCostoArriendo(5)+  "pesos");
+        System.out.println("Tiene estacionamiento inicial: " + miDepto.tieneEstacionamientoAsignado());
+
+
+        miDepto.asignarEstacionamiento();
+        System.out.println("Tiene estacionamiento tras activar: " + miDepto.tieneEstacionamientoAsignado());
     }
 }

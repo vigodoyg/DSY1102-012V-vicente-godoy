@@ -1,7 +1,4 @@
-//PARTE III
-//Requerimientos
-//No todos los objetos del dominio poseen la misma capacidad adicional. Esa capacidad debe modelarse
-//mediante un contrato independiente de la jerarquía principal.
+
 
 public class Departamento extends Vivienda implements ConEstacionamiento {
 

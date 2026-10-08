@@ -1,28 +1,38 @@
+//PARTE IV
+//Continuidad: ya existe la jerarquía completa y la capacidad opcional.
+//
 
-//PARTE III
-//No todos los objetos del dominio poseen la misma capacidad adicional. Esa capacidad debe modelarse
-//mediante un contrato independiente de la jerarquía principal.
-
-
-//testeo casa / departamento con interfaz /
-
-
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
-        Casa miCasa = new Casa("CASA-666", 120, 3, true);
-        System.out.println(miCasa);
-        System.out.println("Arriendo base casa: " + miCasa.calcularCostoArriendo()+ "Pesos");
-
-        System.out.println("\n");
-
-        Departamento miDepto = new Departamento("DEP-201", 55, 2, 4, true);
-        System.out.println(miDepto);
-        System.out.println("Tiene estacionamiento inicial: " + miDepto.tieneEstacionamientoAsignado());
+        GestorViviendas gestor = new GestorViviendas();
 
 
-        miDepto.asignarEstacionamiento();
-        System.out.println("Tiene estacionamiento tras activar: " + miDepto.tieneEstacionamientoAsignado());
+        Casa casa1 = new Casa("CASA-321", 120, 3, true);
+        Casa casa2 = new Casa("CASA-123", 90, 2, false);
+        Departamento depto1 = new Departamento("DEP-987", 55, 2, 4, false);
+        Departamento depto2 = new Departamento("DEP-789", 70, 3, 8, true);
+
+        System.out.println("\t\tREGISTROS\n");
+        gestor.registrarVivienda(casa1);
+        gestor.registrarVivienda(casa2);
+        gestor.registrarVivienda(depto1);
+        gestor.registrarVivienda(depto2);
+
+        System.out.println();
+
+
+        gestor.listarViviendas();
+
+        System.out.println();
+
+        System.out.println("\t\tPRUEBA DE BÚSQUEDA\n ");
+        String busqueda = "DEP";
+        List<Vivienda> encontradas = gestor.buscarPorCodigo(busqueda);
+        System.out.println("\tCoincidencias encontradas para '" + busqueda + "': " + encontradas.size());
+        for (Vivienda v : encontradas) {
+            System.out.println(" -> Encontrada: " + v.getCodigoPropiedad() + " ($" + v.calcularCostoArriendo() + " pesos)");
+        }
     }
 }

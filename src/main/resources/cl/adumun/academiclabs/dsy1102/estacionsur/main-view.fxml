@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cl.adumun.academiclabs.dsy1102.estacionsur.controller.MainController"
+            prefWidth="980" prefHeight="620">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- IZQUIERDA: Formulario de registro -->
+    <left>
+        <VBox spacing="10" prefWidth="320">
+            <padding>
+                <Insets right="15"/>
+            </padding>
+
+            <Label text="Gestión de Talleres" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <!-- Selector de modalidad -->
+            <Label text="Modalidad:"/>
+            <ComboBox fx:id="cbModalidad" prefWidth="300" promptText="Seleccione modalidad..."/>
+
+            <!-- Campos comunes -->
+            <Label text="Código:"/>
+            <TextField fx:id="txtCodigo" promptText="Ej: TAL-01"/>
+
+            <Label text="Nombre:"/>
+            <TextField fx:id="txtNombre" promptText="Ej: Cerámica Inicial"/>
+
+            <Label text="Duración (horas):"/>
+            <TextField fx:id="txtDuracion" promptText="Ej: 12"/>
+
+            <Label text="Cupos:"/>
+            <TextField fx:id="txtCupos" promptText="Ej: 15"/>
+
+            <!-- Grupo específico 1: Presencial -->
+            <VBox fx:id="boxPresencial" spacing="5" style="-fx-border-color: #cccccc; -fx-padding: 8;">
+                <Label text="Datos Presenciales" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="txtSala" promptText="Sala (Ej: Taller 2)"/>
+                <CheckBox fx:id="chkMateriales" text="Materiales incluidos"/>
+            </VBox>
+
+            <!-- Grupo específico 2: Virtual -->
+            <VBox fx:id="boxVirtual" spacing="5" style="-fx-border-color: #cccccc; -fx-padding: 8;">
+                <Label text="Datos Virtuales" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="txtPlataforma" promptText="Plataforma (Ej: Zoom)"/>
+                <CheckBox fx:id="chkGrabacion" text="Grabación disponible"/>
+            </VBox>
+
+            <!-- Botones de acción -->
+            <HBox spacing="10">
+                <Button text="Registrar" onAction="#handleRegistrar" prefWidth="100"/>
+                <Button text="Eliminar" onAction="#handleEliminar" prefWidth="100"/>
+                <Button text="Limpiar" onAction="#limpiarFormulario" prefWidth="90"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <!-- CENTRO: Tabla de consulta -->
+    <center>
+        <VBox spacing="8">
+            <Label text="Talleres Registrados" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tablaTalleres" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colTipo" text="Modalidad" prefWidth="90"/>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="80"/>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="140"/>
+                    <TableColumn fx:id="colDuracion" text="Horas" prefWidth="60"/>
+                    <TableColumn fx:id="colCupos" text="Cupos" prefWidth="60"/>
+                    <TableColumn fx:id="colDetalle" text="Detalle" prefWidth="140"/>
+                    <TableColumn fx:id="colArancel" text="Arancel" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- ABAJO: Área de mensajes -->
+    <bottom>
+        <HBox>
+            <padding>
+                <Insets top="10"/>
+            </padding>
+            <Label fx:id="lblMensaje" text="Listo para operar."/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
